@@ -56,6 +56,19 @@ Add it to your project:
 ```
 
 
+## Options
+
+When setting the cookies you can pass a second parameter as options:
+
+```js
+cookies({ token: '42' }, {
+  expires: 100 * 24 * 3600,   // The time to expire in seconds
+  path: '/',      // The path for the cookie
+  secure: false,  // Require it uses https only
+  domain: '.mydomain.com'     // The domain for the cookie
+});
+```
+
 
 ## Author and License
 
