@@ -1,0 +1,65 @@
+{
+  "name": "cookiesjs",
+  "version": "1.0.0",
+  "homepage": "https://github.com/franciscop/cookies.js",
+  "authors": [
+    "Francisco Presencia <developerfrancisco@hotmail.com>"
+  ],
+  "description": "Intuitive cookie manipulation library",
+  "main": "cookies.min.js",
+  "keywords": [
+    "cookies",
+    "js",
+    "javascript",
+    "frontend",
+    "expiration",
+    "secure"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/franciscop/cookies.js/issues"
+  },
+  "scripts": {
+    "installphantom": "npm run phantomlib && npm run phantominst && npm run phantommove",
+    "phantomlib": "sudo apt-get update && sudo apt-get install build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev",
+    "phantominst": "cd ~ && export PHANTOM_JS=\"phantomjs-1.9.7-linux-x86_64\" && wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 && sudo tar xvjf $PHANTOM_JS.tar.bz2",
+    "phantommove": "sudo mv $PHANTOM_JS /usr/local/share && sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franciscop/cookies.js.git"
+  },
+  "devDependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "grunt": "^0.4.5",
+    "grunt-bytesize": "^0.1.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-mocha-phantomjs": "^2.0.1",
+    "grunt-semistandard": "^1.0.6",
+    "mocha-phantomjs": "^4.0.2",
+    "phantomjs": "^1.9.8"
+  },
+  "semistandard": {
+    "ignore": [
+      "umbrella.js",
+      "polyfill.js",
+      "**/jquery.js",
+      "**/chai.js",
+      "**/sinon.js",
+      "**/mocha.js",
+      "**/*.min.js"
+    ],
+    "globals": [
+      "chai",
+      "describe",
+      "it",
+      "cookies",
+      "before",
+      "after",
+      "$"
+    ]
+  }
+}
