@@ -12,7 +12,13 @@ cookies({ token: null });      // Eat it
 
 ## Getting started
 
-There are few ways to use cookies.js. You can just install it with bower:
+There are few ways to use cookies.js. The easiest one is to use unpkg.com CDN:
+
+```html
+<script src="https://unpkg.com/cookiesjs@1"></script>
+```
+
+You can also install it with bower:
 
 ```
 bower install cookiesjs
