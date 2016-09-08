@@ -69,3 +69,15 @@ var cookies = function (data, opt) {
   }
   return cookies;
 };
+
+(function webpackUniversalModuleDefinition (root) {
+  if (typeof exports === 'object' && typeof module === 'object') {
+    module.exports = cookies;
+  } else if (typeof define === 'function' && define.amd) {
+    define('cookies', [], cookies);
+  } else if (typeof exports === 'object') {
+    exports['cookies'] = cookies;
+  } else {
+    root['cookies'] = cookies;
+  }
+})(this);

@@ -1,6 +1,6 @@
 {
   "name": "cookiesjs",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "homepage": "https://github.com/franciscop/cookies.js",
   "authors": [
     "Francisco Presencia <developerfrancisco@hotmail.com>"
@@ -60,7 +60,8 @@
       "cookies",
       "before",
       "after",
-      "$"
+      "$",
+      "define"
     ]
   }
 }
