@@ -1,6 +1,6 @@
 # cookies.js [![Circle CI](https://circleci.com/gh/franciscop/cookies.js/tree/master.svg?style=shield)](https://circleci.com/gh/franciscop/cookies.js/tree/master) [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/umbrellajs/umbrella/blob/master/LICENSE)
 
-Super simple cookie manipulation on the front-end using javascript cookies:
+Super simple cookie manipulation on the front-end using javascript:
 
 ```js
 cookies({ token: '42' });      // Set it
