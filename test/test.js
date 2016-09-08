@@ -44,6 +44,10 @@ describe('Setting the cookies', function () {
     expect(cookies({ a: '北' })('a')).to.equal('北');
   });
 
+  it('can set a number', function () {
+    expect(cookies({ a: 42 })('a')).to.equal(42);
+  });
+
   it('can set arrays', function () {
     var arr = ['a', 'b', 'c'];
     expect(cookies({ a: arr })('a')).to.deep.equal(arr);
@@ -68,6 +72,43 @@ describe('Setting the cookies', function () {
     expect(cookies({ a: 'a' })({ a: null })('a')).to.equal(undefined);
     expect(cookies({ a: 'a' })({ a: undefined })('a')).to.equal(undefined);
     expect(cookies({ a: 'a' })({ a: 'a' }, { expires: -10 })('a')).to.equal(undefined);
+  });
+});
+
+describe('Setting the options', function () {
+  it('uses expires option', function () {
+    cookies({ a: 'a' }, {
+      test: function (cookie) {
+        expect(cookie.match(/expires\=/).length).to.equal(1);
+      }
+    });
+  });
+
+  it('can set session cookies', function () {
+    cookies({ a: 'a' }, {
+      expires: false,
+      test: function (cookie) {
+        expect(cookie.match(/expires\=/)).to.equal(null);
+      }
+    });
+  });
+
+  it('can set future date with both methods', function () {
+    var tenmin = new Date();
+    tenmin.setTime(tenmin.getTime() + (10 * 60 * 1000));
+    cookies({ a: 'a' }, {
+      expires: tenmin,
+      test: function (exp) {
+        expect(exp).not.to.be.empty;
+        expect(exp).to.be.a('string');
+        cookies({ a: 'a' }, {
+          expires: 10 * 60,
+          test: function (safe) {
+            expect(safe).to.equal(exp);
+          }
+        });
+      }
+    });
   });
 });
 

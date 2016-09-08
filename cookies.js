@@ -13,7 +13,11 @@ var cookies = function (data, opt) {
     expires: 365 * 24 * 3600,
     path: '/',
     secure: window.location.protocol === 'https:',
-    json: true,
+
+    // Advanced
+    nulltoremove: true,
+    autojson: true,
+    autoencode: true,
     encode: function (val) {
       return encodeURIComponent(val);
     },
@@ -25,19 +29,23 @@ var cookies = function (data, opt) {
   opt = defaults(opt, cookies);
 
   function expires (time) {
-    var expires = new Date();
-    expires.setTime(expires.getTime() + (time * 1000));
+    var expires = time;
+    if (!(expires instanceof Date)) {
+      expires = new Date();
+      expires.setTime(expires.getTime() + (time * 1000));
+    }
     return expires.toUTCString();
   }
 
   if (typeof data === 'string') {
     var value = document.cookie.split(/;\s*/)
-      .map(opt.decode).map(function (part) { return part.split('='); })
+      .map(opt.autoencode ? opt.decode : function (d) { return d; })
+      .map(function (part) { return part.split('='); })
       .reduce(function (parts, part) {
         parts[part[0]] = part[1];
         return parts;
       }, {})[data];
-    if (!opt.json) return value;
+    if (!opt.autojson) return value;
     try {
       return JSON.parse(value);
     } catch (e) {
@@ -45,12 +53,14 @@ var cookies = function (data, opt) {
     }
   }
 
+  // Set each of the cookies
   for (var key in data) {
-    var expired = data[key] === undefined || data[key] === null;
-    var encoded = opt.encode(JSON.stringify(data[key]));
+    var expired = data[key] === undefined || (opt.nulltoremove && data[key] === null);
+    var str = opt.autojson ? JSON.stringify(data[key]) : data[key];
+    var encoded = opt.autoencode ? opt.encode(str) : str;
     if (expired) encoded = '';
     var res = opt.encode(key) + '=' + encoded +
-      ';expires=' + expires(expired ? -10000 : opt.expires) +
+      (opt.expires ? (';expires=' + expires(expired ? -10000 : opt.expires)) : '') +
       ';path=' + opt.path +
       (opt.domain ? (';domain=' + opt.domain) : '') +
       (opt.secure ? ';secure' : '');
