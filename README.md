@@ -12,31 +12,13 @@ cookies({ token: null });      // Eat it
 
 ## Getting started
 
-There are few ways to use cookies.js:
-
-
-
-### Use bower
-
-Bower is a front-end package manager that makes it super-easy to add a new package:
+There are few ways to use cookies.js. You can just install it with bower:
 
 ```
 bower install cookiesjs
 ```
 
-
-### Download it
-
-If you like it or prefer to try it locally, just download `cookies.min.js`:
-
-[**Download cookies.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js)
-
-Add it to your project:
-
-```html
-<script src="cookies.min.js"></script>
-```
-
+Or just download [**cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js) and use it locally:
 
 
 
