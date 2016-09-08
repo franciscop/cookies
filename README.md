@@ -113,7 +113,7 @@ An explanation of them all:
 
 ### Advanced options
 
-There are some advanced options that we don't recommend to change, but that you can change if you want to do so. If you change some of these you could have problems down the road.
+There are some advanced options that we don't recommend to change as you could have problems down the road, but if you know what you are doing go ahead.
 
 ```js
 cookies({ token: '42' }, {
@@ -134,6 +134,12 @@ cookies.autoencode = true;
 cookies.encode = function(str){ return encodeURIComponent(str); };
 cookies.decode = function(str){ return decodeURIComponent(str); };
 ```
+
+Few notes:
+
+- If you want to store a `null` value in a cookie you'll have to set up `cookies.nulltoremove = false`.
+- If you cancel `cookies.autojson`, be aware that objects will be stored literally as `[object Object]`, arrays will be joined with `,` and numbers will become strings.
+- Changing `cookies.autoencode` or `cookies.encode` could contribute to stop making it [RFC 6265 compliant](https://news.ycombinator.com/item?id=12450841).
 
 
 
