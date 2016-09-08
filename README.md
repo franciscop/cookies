@@ -60,7 +60,7 @@ Lastly, you can concatenate them as many times as you want:
 cookies({ token: 42 })({ token: '42' });
 ```
 
-Note that this library doesn't accept a two-parameter strings to set cookies like many of the other libraries to avoid confusion with the options:
+Note that this library **does not** accept a two-parameter strings to set cookies like many other libraries to avoid confusion with the options:
 
 ```js
 // NOT VALID
@@ -73,7 +73,7 @@ cookies('token', '42');
 
 > or continue to [read a cookie](#read-a-cookie)
 
-When using cookies you can pass a second parameter as options (shown with the defaults):
+When using cookies you can pass a second parameter as options (shown here with the defaults):
 
 ```js
 cookies({ token: '42' }, {
