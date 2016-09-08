@@ -135,7 +135,7 @@ cookies.encode = function(str){ return encodeURIComponent(str); };
 cookies.decode = function(str){ return decodeURIComponent(str); };
 ```
 
-Few notes:
+Few notes and warnings:
 
 - If you want to store a `null` value in a cookie you'll have to set up `cookies.nulltoremove = false`.
 - If you cancel `cookies.autojson`, be aware that objects will be stored literally as `[object Object]`, arrays will be joined with `,` and numbers will become strings.
