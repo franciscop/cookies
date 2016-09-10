@@ -1,11 +1,11 @@
 {
   "name": "cookiesjs",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "homepage": "https://github.com/franciscop/cookies.js",
   "authors": [
     "Francisco Presencia <developerfrancisco@hotmail.com>"
   ],
-  "description": "Intuitive cookie manipulation library",
+  "description": "Intuitive cookie manipulation library for the front-end",
   "main": "cookies.min.js",
   "keywords": [
     "cookies",

@@ -1,21 +1,19 @@
 {
   "name": "cookiesjs",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "homepage": "http://github.com/franciscop/cookies.js",
   "authors": [
     "Francisco Presencia <developerfrancisco@hotmail.com>"
   ],
-  "description": "Lightweight and intuitive javascript library",
-  "main": "umbrella.min.js",
+  "description": "Intuitive cookie manipulation library for the front-end",
+  "main": "cookies.min.js",
   "keywords": [
-    "umbrella",
+    "cookies",
     "js",
-    "selector",
-    "ajax",
-    "small",
-    "tiny",
-    "jquery",
-    "alternative"
+    "javascript",
+    "frontend",
+    "expiration",
+    "secure"
   ],
   "license": "MIT",
   "ignore": [
