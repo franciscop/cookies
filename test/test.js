@@ -23,9 +23,7 @@ describe('Setting the cookies', function () {
   });
 
   it('can set a simple cookie', function () {
-    expect(cookies({ a: 'b' }, { test: function (str) {
-      console.log(str);
-    } })('a')).to.equal('b');
+    expect(cookies({ a: 'b' })('a')).to.equal('b');
   });
 
   it('can set two simple cookies', function () {

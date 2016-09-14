@@ -3,9 +3,9 @@
 Super simple cookie manipulation on the front-end using javascript:
 
 ```js
-cookies({ token: '42' });      // Set it
-var token = cookies('token');  // Get it
-cookies({ token: null });      // Eat it
+cookies({ token: '42' });     // Set it
+var token = cookies('token'); // Get it
+cookies({ token: null });     // Eat it
 ```
 
 
@@ -24,7 +24,7 @@ You can also install it with bower:
 bower install cookiesjs
 ```
 
-Or just download [**cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js) and use it locally: `<script src="cookies.min.js"></script>`
+Or just [download ** cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js) and use it locally: `<script src="cookies.min.js"></script>`
 
 
 
@@ -39,17 +39,32 @@ cookies({ token: '42' });
 
 > We make the assumption that you want a cookie instead of a session, so cookies.js will set the expiration to 100 days by default. Set `cookies.expires = 0` as seen in [the options](#options) to use session cookies
 
-You can also set other complex data and it will be json-encoded saved and retrieved properly:
+You can set as many cookies as you want at the same time:
+
+```js
+cookies({ token: '42', question: 'the Ultimate Question' });
+```
+
+The example above would be the same as this:
+
+```js
+cookies({ question: 'the Ultimate Question' });
+cookies({ token: '42' });
+```
+
+
+You can also set complex data and it will be json-encoded saved and retrieved properly **in a single cookie**:
 
 ```js
 var userdata = { email: 'test@test.com', token: '42' };
 cookies({ user: userdata });
 ```
 
-You can set as many cookies as you want at the same time:
+The example above is **different** from this one. This one sets *two* cookies:
 
 ```js
-cookies({ token: '42', question: 'the Ultimate Question' });
+cookies({ email: 'test@test.com' });
+cookies({ token: '42' });
 ```
 
 It will also store numbers (instead of strings) because it uses json to encode them:
@@ -110,6 +125,25 @@ An explanation of them all:
 - `path`: the folder where the cookie will be available. Normally it's better to leave this empty.
 - `secure`: force the cookie to be retrieved through https. By default this is set to true when it's set in an https domain to avoid it being stolen if you later visit an http page on a public connection.
 
+For instance, to set a cookie that expires in 24h you would do:
+
+```js
+cookies({ shortlife: 42 }, { expires: 24 * 3600 });
+```
+
+To set two cookies with the same domain, you could do:
+
+```js
+cookies({ same: '4', place: '2' }, { domain: '.example.com' });
+```
+
+But you can also set them to different domains:
+
+```js
+cookies({ same: '4' }, { domain: '.example.com' });
+cookies({ place: '2' }, { domain: 'sub.example.com' });
+```
+
 
 ### Advanced options
 
@@ -151,7 +185,15 @@ To read a cookie you call the main function with a string, that is the key of th
 var token = cookies('token');
 ```
 
-> *cookies.js* automatically stores and retrieves the cookies with JSON and URI-encoded. You can disable this (but normally you wouldn't want to do this) with the options `autojson` and `autoencode` as seen [in the Advanced Options](#advanced-options).
+> *cookies.js* automatically stores and retrieves the cookies with JSON and URI-encoded. You can disable this with the options `autojson` and `autoencode` as seen [in the Advanced Options](#advanced-options).
+
+Set and read a cookie:
+
+```js
+cookies({ token: '42' });
+var token = cookies('token');
+// token === '42'
+```
 
 You can set and read a cookie at the same time taking advantage of the concatenation:
 
@@ -171,6 +213,42 @@ cookies({ token: null });
 cookies({ token: 'a' }, { expires: -10 });
 ```
 
+So, let's write, remove and read a cookie:
+
+```js
+cookies({ token: '42' });
+cookies({ token: null });
+var token = cookies('token');
+// token === undefined
+```
+
+
+
+## Examples
+
+Let's do a typical (simplified) authentication flow:
+
+```js
+var token = cookies('token');
+var user;
+if (token) {
+  $.post('/user/auth', { token: token }, function(data){
+    user = data;
+  });
+}
+```
+
+Or let's check if the user accepts cookies (European law):
+
+```js
+if (!cookies('accepted')) {
+  $('.cookie-box').show();
+  $('.cookie-box .accept').click(function(){
+    $('.cookie-box').hide();
+    cookies({ accepted: true });
+  });
+}
+```
 
 
 
