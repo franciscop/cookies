@@ -155,7 +155,9 @@ cookies({ token: '42' }, {
   autojson: true,           // Encode and decode data structures with JSON
   autoencode: true,         // Encode to make it safe for url (RFC6265)
   encode: function(str){ return encodeURIComponent(str); },  // Function to encode it
-  decode: function(str){ return decodeURIComponent(str); }   // Function to decode it
+  decode: function(str){ return decodeURIComponent(str); },  // Function to decode it
+  error: function(error, data, opt) { throw new Error(error); }, // To handle errors
+  fallback: false  // A method to use as a fallback if cookies don't work
 });
 ```
 
@@ -167,6 +169,8 @@ cookies.autojson = true;
 cookies.autoencode = true;
 cookies.encode = function(str){ return encodeURIComponent(str); };
 cookies.decode = function(str){ return decodeURIComponent(str); };
+cookies.error = function(error, data, opt) { throw new Error(error); };
+cookies.fallback = false;
 ```
 
 Few notes and warnings:
@@ -174,7 +178,7 @@ Few notes and warnings:
 - If you want to store a `null` value in a cookie you'll have to set up `cookies.nulltoremove = false`.
 - If you cancel `cookies.autojson`, be aware that objects will be stored literally as `[object Object]`, arrays will be joined with `,` and numbers will become strings.
 - Changing `cookies.autoencode` or `cookies.encode` could contribute to stop making it [RFC 6265 compliant](https://news.ycombinator.com/item?id=12450841).
-
+- The method `cookies.fallback` is probably buggy and totally recommended not to be used. It will be used as a proxy if the cookie itself fails
 
 
 ## Read a cookie

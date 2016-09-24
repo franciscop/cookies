@@ -23,7 +23,11 @@ var cookies = function (data, opt) {
     },
     decode: function (val) {
       return decodeURIComponent(val);
-    }
+    },
+    error: function (error, data, opt) {
+      throw new Error(error);
+    },
+    fallback: false
   });
 
   opt = defaults(opt, cookies);
@@ -46,11 +50,14 @@ var cookies = function (data, opt) {
         return parts;
       }, {})[data];
     if (!opt.autojson) return value;
+    var real;
     try {
-      return JSON.parse(value);
+      real = JSON.parse(value);
     } catch (e) {
-      return value;
+      real = value;
     }
+    if (typeof real === 'undefined' && opt.fallback) real = opt.fallback(data, opt);
+    return real;
   }
 
   // Set each of the cookies
@@ -71,7 +78,15 @@ var cookies = function (data, opt) {
     var read = (cookies(opt.encode(key)) || '');
     if (val && !expired && opt.expires > 0 &&
         JSON.stringify(read) !== JSON.stringify(val)) {
-      throw new Error('Couldn\'t set cookie. Maybe too large?');
+      if (navigator.cookieEnabled) {
+        if (opt.fallback) {
+          opt.fallback(data, opt);
+        } else {
+          opt.error('Cookie too large at ' + val.length + ' characters');
+        }
+      } else {
+        opt.error('Cookies not enabled');
+      }
     }
   }
   return cookies;

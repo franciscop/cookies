@@ -16,7 +16,7 @@ describe('cookies()', function () {
 });
 
 describe('Setting the cookies', function () {
-  after(function () {
+  afterEach(function () {
     cookies({ a: null, b: null, c: null, d: null, e: null });
     expect(cookies('a')).to.equal(undefined);
     expect(cookies('b')).to.equal(undefined);
@@ -71,6 +71,22 @@ describe('Setting the cookies', function () {
     expect(cookies({ a: 'a' })({ a: null })('a')).to.equal(undefined);
     expect(cookies({ a: 'a' })({ a: a })('a')).to.equal(undefined);
     expect(cookies({ a: 'a' })({ a: 'a' }, { expires: -10 })('a')).to.equal(undefined);
+  });
+
+  it('can handle a fallback', function () {
+    var dataStorage = {
+      a: 42,
+      b: '25',
+      c: { a: 1, b: 2 }
+    };
+    cookies.fallback = function (data, opt) {
+      return dataStorage[data];
+    };
+    expect(cookies('a')).to.equal(42);
+    expect(cookies('b')).to.equal('25');
+    expect(cookies('c')).to.deep.equal({ a: 1, b: 2 });
+    expect(cookies('d')).to.equal(undefined);
+    cookies.fallback = undefined;
   });
 
   it('can handle large cookies too large', function () {
