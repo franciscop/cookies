@@ -54,6 +54,7 @@
       "**/*.min.js"
     ],
     "globals": [
+      "mocha",
       "chai",
       "describe",
       "it",

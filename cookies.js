@@ -55,8 +55,9 @@ var cookies = function (data, opt) {
 
   // Set each of the cookies
   for (var key in data) {
-    var expired = data[key] === undefined || (opt.nulltoremove && data[key] === null);
-    var str = opt.autojson ? JSON.stringify(data[key]) : data[key];
+    var val = data[key];
+    var expired = typeof val === 'undefined' || (opt.nulltoremove && val === null);
+    var str = opt.autojson ? JSON.stringify(val) : val;
     var encoded = opt.autoencode ? opt.encode(str) : str;
     if (expired) encoded = '';
     var res = opt.encode(key) + '=' + encoded +
@@ -66,6 +67,12 @@ var cookies = function (data, opt) {
       (opt.secure ? ';secure' : '');
     if (opt.test) opt.test(res);
     document.cookie = res;
+
+    var read = (cookies(opt.encode(key)) || '');
+    if (val && !expired && opt.expires > 0 &&
+        JSON.stringify(read) !== JSON.stringify(val)) {
+      throw new Error('Couldn\'t set cookie. Maybe too large?');
+    }
   }
   return cookies;
 };
