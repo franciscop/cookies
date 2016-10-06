@@ -47,6 +47,7 @@
     "ignore": [
       "umbrella.js",
       "polyfill.js",
+      "web/**",
       "**/jquery.js",
       "**/chai.js",
       "**/sinon.js",
