@@ -46,7 +46,7 @@ var cookies = function (data, opt) {
       .map(opt.autoencode ? opt.decode : function (d) { return d; })
       .map(function (part) { return part.split('='); })
       .reduce(function (parts, part) {
-        parts[part[0]] = part[1];
+        parts[part[0]] = part.splice(1).join('=');
         return parts;
       }, {})[data];
     if (!opt.autojson) return value;
