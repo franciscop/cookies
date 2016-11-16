@@ -15,6 +15,25 @@ describe('cookies()', function () {
   });
 });
 
+describe('Reading the cookies', function () {
+  afterEach(function () {
+    cookies({ a: null, b: null, c: null, d: null, e: null });
+    expect(cookies('a')).to.equal(undefined);
+    expect(cookies('b')).to.equal(undefined);
+  });
+  
+  it('can read a simple cookie', function () {
+    cookies({ a: 'a' });
+    expect(cookies('a')).to.equal('a');
+  });
+
+  it('can read a cookie with an equal sign', function () {
+    cookies({ a: 'a=b' });
+    expect(cookies('a')).to.equal('a=b');
+    cookies({ a: null });
+  });
+});
+
 describe('Setting the cookies', function () {
   afterEach(function () {
     cookies({ a: null, b: null, c: null, d: null, e: null });
