@@ -21,7 +21,7 @@ describe('Reading the cookies', function () {
     expect(cookies('a')).to.equal(undefined);
     expect(cookies('b')).to.equal(undefined);
   });
-  
+
   it('can read a simple cookie', function () {
     cookies({ a: 'a' });
     expect(cookies('a')).to.equal('a');
