@@ -1,4 +1,4 @@
-# cookies.js [![Circle CI](https://circleci.com/gh/franciscop/cookies.js/tree/master.svg?style=shield)](https://circleci.com/gh/franciscop/cookies.js/tree/master) [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/umbrellajs/umbrella/blob/master/LICENSE)
+# cookies.js [![Circle CI](https://circleci.com/gh/franciscop/cookies.js/tree/master.svg?style=shield)](https://circleci.com/gh/franciscop/cookies.js/tree/master) [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/franciscop/cookies.js/blob/master/LICENSE)
 
 Super simple cookie manipulation on the front-end using javascript:
 
@@ -15,13 +15,13 @@ cookies({ token: null });     // Eat it
 There are few ways to use cookies.js. The easiest one is to use unpkg.com CDN:
 
 ```html
-<script src="https://unpkg.com/cookiesjs@1"></script>
+<script src="https://unpkg.com/cookiesjs@2"></script>
 ```
 
-You can also install it with bower or NPM:
+You can also install it with NPM:
 
 ```
-npm/bower install cookiesjs
+npm install cookiesjs
 ```
 
 Or just [download **cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js) and use it locally: `<script src="cookies.min.js"></script>`
@@ -156,8 +156,6 @@ cookies({ token: '42' }, {
   autoencode: true,         // Encode to make it safe for url (RFC6265)
   encode: function(str){ return encodeURIComponent(str); },  // Function to encode it
   decode: function(str){ return decodeURIComponent(str); },  // Function to decode it
-  error: function(error, data, opt) { throw new Error(error); }, // To handle errors
-  fallback: false  // A method to use as a fallback if cookies don't work
 });
 ```
 
@@ -169,8 +167,6 @@ cookies.autojson = true;
 cookies.autoencode = true;
 cookies.encode = function(str){ return encodeURIComponent(str); };
 cookies.decode = function(str){ return decodeURIComponent(str); };
-cookies.error = function(error, data, opt) { throw new Error(error); };
-cookies.fallback = false;
 ```
 
 Few notes and warnings:
@@ -178,7 +174,6 @@ Few notes and warnings:
 - If you want to store a `null` value in a cookie you'll have to set up `cookies.nulltoremove = false`.
 - If you cancel `cookies.autojson`, be aware that objects will be stored literally as `[object Object]`, arrays will be joined with `,` and numbers will become strings.
 - Changing `cookies.autoencode` or `cookies.encode` could contribute to stop making it [RFC 6265 compliant](https://news.ycombinator.com/item?id=12450841).
-- The method `cookies.fallback` is probably buggy and totally recommended not to be used. It will be used as a proxy if the cookie itself fails
 
 
 ## Read a cookie

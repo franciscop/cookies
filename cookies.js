@@ -24,9 +24,6 @@ var cookies = function (data, opt) {
     decode: function (val) {
       return decodeURIComponent(val);
     },
-    error: function (error, data, opt) {
-      throw new Error(error);
-    },
     fallback: false
   });
 
@@ -74,20 +71,6 @@ var cookies = function (data, opt) {
       (opt.secure ? ';secure' : '');
     if (opt.test) opt.test(res);
     document.cookie = res;
-
-    var read = (cookies(opt.encode(key)) || '');
-    if (val && !expired && opt.expires > 0 &&
-        JSON.stringify(read) !== JSON.stringify(val)) {
-      if (navigator.cookieEnabled) {
-        if (opt.fallback) {
-          opt.fallback(data, opt);
-        } else {
-          opt.error('Cookie too large at ' + val.length + ' characters');
-        }
-      } else {
-        opt.error('Cookies not enabled');
-      }
-    }
   }
   return cookies;
 };
