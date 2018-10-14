@@ -1,4 +1,4 @@
-# cookies.js [![Circle CI](https://circleci.com/gh/franciscop/cookies.js/tree/master.svg?style=shield)](https://circleci.com/gh/franciscop/cookies.js/tree/master) [![License MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/franciscop/cookies.js/blob/master/LICENSE)
+# cookies.js [![Circle CI](https://circleci.com/gh/franciscop/cookies.js/tree/master.svg?style=shield)](https://circleci.com/gh/franciscop/cookies.js/tree/master) [![gzip size](https://img.badgesize.io/franciscop/cookies.js/master/cookies.min.js.svg?compression=gzip)](https://github.com/franciscop/cookies.js/blob/master/cookies.min.js) [![](https://data.jsdelivr.com/v1/package/npm/cookiesjs/badge?style=rounded)](https://www.jsdelivr.com/package/npm/cookiesjs)
 
 Super simple cookie manipulation on the front-end using javascript:
 
@@ -8,6 +8,8 @@ var token = cookies('token'); // Get it
 cookies({ token: null });     // Eat it
 ```
 
+> **News**: See my latest Cookies and localStorage library **[`clean-store`](https://github.com/franciscop/clean-store)**!
+
 
 
 ## Getting started
@@ -15,7 +17,7 @@ cookies({ token: null });     // Eat it
 There are few ways to use cookies.js. The easiest one is to use unpkg.com CDN:
 
 ```html
-<script src="https://unpkg.com/cookiesjs@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/cookiesjs@2"></script>
 ```
 
 You can also install it with NPM:
