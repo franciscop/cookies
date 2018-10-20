@@ -1,4 +1,4 @@
-export default function (data, opt) {
+var cookies = function (data, opt) {
   function defaults (obj, defs) {
     obj = obj || {};
     for (var key in defs) {
@@ -74,3 +74,5 @@ export default function (data, opt) {
   }
   return cookies;
 }
+
+export default cookies;
