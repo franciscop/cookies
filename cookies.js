@@ -1,4 +1,4 @@
-var cookies = function (data, opt) {
+export default function (data, opt) {
   function defaults (obj, defs) {
     obj = obj || {};
     for (var key in defs) {
@@ -73,16 +73,4 @@ var cookies = function (data, opt) {
     document.cookie = res;
   }
   return cookies;
-};
-
-(function webpackUniversalModuleDefinition (root) {
-  if (typeof exports === 'object' && typeof module === 'object') {
-    module.exports = cookies;
-  } else if (typeof define === 'function' && define.amd) {
-    define('cookies', [], cookies);
-  } else if (typeof exports === 'object') {
-    exports['cookies'] = cookies;
-  } else {
-    root['cookies'] = cookies;
-  }
-})(this);
+}

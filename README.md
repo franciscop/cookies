@@ -8,7 +8,7 @@ var token = cookies('token'); // Get it
 cookies({ token: null });     // Eat it
 ```
 
-> **News**: See my latest Cookies and localStorage library **[`clean-store`](https://github.com/franciscop/clean-store)**!
+> **News**: See my latest Cookies and localStorage library **[`brownies`](https://github.com/franciscop/brownies)**!
 
 
 
