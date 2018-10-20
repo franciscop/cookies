@@ -14,19 +14,39 @@ cookies({ token: null });     // Eat it
 
 ## Getting started
 
-There are few ways to use cookies.js. The easiest one is to use unpkg.com CDN:
 
-```html
-<script src="https://cdn.jsdelivr.net/npm/cookiesjs@2"></script>
-```
-
-You can also install it with NPM:
+There are few ways to use cookies.js. To install it into your bundle use *npm*:
 
 ```
 npm install cookiesjs
 ```
 
-Or just [download **cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js) and use it locally: `<script src="cookies.min.js"></script>`
+Then import it into your project:
+
+```js
+import cookies from 'cookiesjs';  // New style
+const cookies = require('cookiesjs');  // Old school
+
+cookies(...);  // Use it
+```
+
+You can alternatively use the awesome JSDelivr CDN:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/cookiesjs@3"></script>
+<script type="text/javascript">
+  cookies(...);
+</script>
+```
+
+Or just [download **cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js) and use it locally:
+
+```html
+<script src="cookies.min.js"></script>
+<script type="text/javascript">
+  cookies(...);
+</script>
+```
 
 
 
