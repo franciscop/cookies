@@ -1,7 +1,7 @@
 {
   "name": "cookiesjs",
   "version": "3.0.2",
-  "homepage": "https://github.com/franciscop/cookies.js",
+  "homepage": "https://github.com/franciscop/cookies",
   "authors": [
     "Francisco Presencia <developerfrancisco@hotmail.com>"
   ],
@@ -18,7 +18,7 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/franciscop/cookies.js/issues"
+    "url": "https://github.com/franciscop/cookies/issues"
   },
   "scripts": {
     "build": "rollup cookies.js --name cookies --output.format umd | uglifyjs -o cookies.min.js",
@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/franciscop/cookies.js.git"
+    "url": "git+https://github.com/franciscop/cookies.git"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
