@@ -73,6 +73,6 @@ var cookies = function (data, opt) {
     document.cookie = res;
   }
   return cookies;
-}
+};
 
 export default cookies;
