@@ -39,7 +39,7 @@ You can alternatively use the awesome JSDelivr CDN:
 </script>
 ```
 
-Or just [download **cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js) and use it locally:
+Or just [download **cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies/master/cookies.min.js) and use it locally:
 
 ```html
 <script src="cookies.min.js"></script>
