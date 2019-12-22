@@ -1,4 +1,4 @@
-# cookies.js [![Circle CI](https://circleci.com/gh/franciscop/cookies.js/tree/master.svg?style=shield)](https://circleci.com/gh/franciscop/cookies.js/tree/master) [![gzip size](https://img.badgesize.io/franciscop/cookies.js/master/cookies.min.js.svg?compression=gzip)](https://github.com/franciscop/cookies.js/blob/master/cookies.min.js) [![](https://data.jsdelivr.com/v1/package/npm/cookiesjs/badge?style=rounded)](https://www.jsdelivr.com/package/npm/cookiesjs)
+# cookies.js [![Circle CI](https://circleci.com/gh/franciscop/cookies.js/tree/master.svg?style=shield)](https://circleci.com/gh/franciscop/cookies.js/tree/master) [![gzip size](https://img.badgesize.io/franciscop/cookies/master/cookies.min.js.svg?compression=gzip)](https://github.com/franciscop/cookies/blob/master/cookies.min.js) [![](https://data.jsdelivr.com/v1/package/npm/cookiesjs/badge?style=rounded)](https://www.jsdelivr.com/package/npm/cookiesjs)
 
 Super simple cookie manipulation on the front-end using javascript:
 
