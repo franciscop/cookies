@@ -32,17 +32,17 @@ cookies(...);  // Use it
 You can alternatively use the awesome JSDelivr CDN:
 
 ```html
-<script type="module">
-  import cookies from 'https://cdn.jsdelivr.net/npm/cookiesjs@4';
+<script src="https://cdn.jsdelivr.net/npm/cookiesjs@4/cookies.min.js"></script>
+<script>
   cookies(...);
 </script>
 ```
 
-Or just [download **index.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/index.min.js) and use it locally:
+Or just [download **cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js) and use it locally:
 
 ```html
-<script type="module">
-  import cookies from './index.min.js';
+<script src="./cookies.min.js"></script>
+<script>
   cookies(...);
 </script>
 ```

@@ -99,5 +99,4 @@ if (typeof window !== 'undefined') {
   (window as unknown as Record<string, unknown>)['cookies'] ??= cookies;
 }
 
-export { cookies };
 export default cookies;

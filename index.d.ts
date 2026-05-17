@@ -18,7 +18,7 @@ export interface CookiesFn extends CookieOptions {
 	(data: string): unknown;
 	(data: Record<string, unknown>, opt?: CookieOptions): CookiesFn;
 }
-export declare const cookies: CookiesFn;
+declare const cookies: CookiesFn;
 
 export {
 	cookies as default,

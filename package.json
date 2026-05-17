@@ -15,7 +15,7 @@
   "types": "index.d.ts",
   "scripts": {
     "build": "bun run build:bundle && bun run build:types",
-    "build:bundle": "esbuild src/index.ts --bundle --format=esm --minify --outfile=index.min.js",
+    "build:bundle": "rolldown src/index.ts -f umd -n cookies -o index.min.js -m --exports default",
     "build:types": "dts-bundle-generator --out-file index.d.ts --project tsconfig.json src/index.ts",
     "lint": "tsc",
     "size": "echo $(gzip -c index.min.js | wc -c) bytes",
@@ -34,7 +34,7 @@
     "@happy-dom/global-registrator": "^20.9.0",
     "@types/bun": "^1.3.0",
     "dts-bundle-generator": "^9.5.1",
-    "esbuild": "^0.28.0",
+    "rolldown": "^1.0.1",
     "typescript": "^6.0.0"
   }
 }
