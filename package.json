@@ -1,6 +1,6 @@
 {
   "name": "cookiesjs",
-  "version": "3.0.3",
+  "version": "4.0.0",
   "description": "Intuitive cookie manipulation library for the front-end",
   "repository": "github:franciscop/cookies",
   "funding": "https://www.paypal.me/franciscopresencia/19",
