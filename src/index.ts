@@ -95,8 +95,4 @@ const cookies = function (data?: string | Record<string, unknown>, opt?: CookieO
   return cookies;
 } as CookiesFn;
 
-if (typeof window !== 'undefined') {
-  (window as unknown as Record<string, unknown>)['cookies'] ??= cookies;
-}
-
 export default cookies;
