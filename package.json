@@ -1,13 +1,27 @@
 {
   "name": "cookiesjs",
   "version": "3.0.3",
-  "homepage": "https://github.com/franciscop/cookies",
-  "authors": [
-    "Francisco Presencia <developerfrancisco@hotmail.com>"
-  ],
   "description": "Intuitive cookie manipulation library for the front-end",
-  "main": "cookies.min.js",
-  "module": "cookies.js",
+  "repository": "github:franciscop/cookies",
+  "funding": "https://www.paypal.me/franciscopresencia/19",
+  "author": "Francisco Presencia <public@francisco.io> (https://francisco.io/)",
+  "license": "MIT",
+  "type": "module",
+  "main": "index.min.js",
+  "files": [
+    "index.min.js",
+    "index.d.ts"
+  ],
+  "types": "index.d.ts",
+  "scripts": {
+    "build": "bun run build:bundle && bun run build:types",
+    "build:bundle": "esbuild src/index.ts --bundle --format=esm --minify --outfile=index.min.js",
+    "build:types": "dts-bundle-generator --out-file index.d.ts --project tsconfig.json src/index.ts",
+    "lint": "tsc",
+    "size": "echo $(gzip -c index.min.js | wc -c) bytes",
+    "start": "bun test --watch",
+    "test": "bun test"
+  },
   "keywords": [
     "cookies",
     "js",
@@ -16,61 +30,11 @@
     "expiration",
     "secure"
   ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/franciscop/cookies/issues"
-  },
-  "scripts": {
-    "build": "rollup cookies.js --name cookies --output.format umd | uglifyjs -o cookies.min.js",
-    "test": "grunt test",
-    "installphantom": "npm run phantomlib && npm run phantominst",
-    "phantomlib": "sudo apt-get update && sudo apt-get install build-essential chrpath libssl-dev libxft-dev libfreetype6 libfreetype6-dev libfontconfig1 libfontconfig1-dev",
-    "phantominst": "cd ~ && export PHANTOM_JS=\"phantomjs-1.9.7-linux-x86_64\" && wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2 && sudo tar xvjf $PHANTOM_JS.tar.bz2 && sudo mv $PHANTOM_JS /usr/local/share && sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/franciscop/cookies.git"
-  },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-jest": "^21.2.0",
-    "babel-preset-env": "^1.6.1",
-    "cookie-parser": "^1.4.3",
-    "express": "^4.14.0",
-    "grunt": "^0.4.5",
-    "grunt-bytesize": "^0.1.1",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-uglify": "^0.11.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-mocha-phantomjs": "^2.0.1",
-    "grunt-semistandard": "^1.0.6",
-    "mocha-phantomjs": "^4.0.2",
-    "phantomjs": "^1.9.8",
-    "rollup": "^0.50.0",
-    "uglify-es": "^3.1.3"
-  },
-  "semistandard": {
-    "ignore": [
-      "umbrella.js",
-      "polyfill.js",
-      "web/**",
-      "**/jquery.js",
-      "**/chai.js",
-      "**/sinon.js",
-      "**/mocha.js",
-      "**/*.min.js"
-    ],
-    "globals": [
-      "mocha",
-      "chai",
-      "describe",
-      "it",
-      "cookies",
-      "before",
-      "after",
-      "$",
-      "define",
-      "afterEach"
-    ]
+    "@happy-dom/global-registrator": "^20.9.0",
+    "@types/bun": "^1.3.0",
+    "dts-bundle-generator": "^9.5.1",
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.0"
   }
 }
