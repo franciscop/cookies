@@ -3,15 +3,17 @@
   "version": "4.0.2",
   "description": "Intuitive cookie manipulation library for the front-end",
   "repository": "github:franciscop/cookies",
-  "funding": "https://www.paypal.me/franciscopresencia/19",
   "author": "Francisco Presencia <public@francisco.io> (https://francisco.io/)",
+  "funding": "https://www.paypal.me/franciscopresencia/19",
   "license": "MIT",
-  "main": "index.min.js",
-  "files": [
-    "index.min.js",
-    "index.d.ts"
+  "keywords": [
+    "cookies",
+    "js",
+    "javascript",
+    "frontend",
+    "expiration",
+    "secure"
   ],
-  "types": "index.d.ts",
   "scripts": {
     "build": "bun run build:bundle && bun run build:types",
     "build:bundle": "rolldown src/index.ts -f umd -n cookies -o index.min.js -m --exports default",
@@ -21,13 +23,11 @@
     "start": "bun test --watch",
     "test": "bun test"
   },
-  "keywords": [
-    "cookies",
-    "js",
-    "javascript",
-    "frontend",
-    "expiration",
-    "secure"
+  "main": "index.min.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.min.js",
+    "index.d.ts"
   ],
   "devDependencies": {
     "@happy-dom/global-registrator": "^20.9.0",

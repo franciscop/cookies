@@ -1,4 +1,4 @@
-# cookies.js [![tests](https://github.com/franciscop/cookies/actions/workflows/tests.yml/badge.svg)](https://github.com/franciscop/cookies/actions/workflows/tests.yml) [![gzip size](https://img.badgesize.io/franciscop/cookies.js/master/index.min.js.svg?label=gzip&logo=&compression=gzip)](https://github.com/franciscop/cookies.js/blob/master/index.min.js) [![dependencies](https://img.shields.io/badge/dependencies-0-limegreen.svg)](https://github.com/franciscop/cookies.js/blob/master/package.json) [![](https://data.jsdelivr.com/v1/package/npm/cookiesjs/badge?style=rounded)](https://www.jsdelivr.com/package/npm/cookiesjs)
+# cookies.js [![tests](https://github.com/franciscop/cookies/actions/workflows/tests.yml/badge.svg)](https://github.com/franciscop/cookies/actions/workflows/tests.yml) [![gzip size](https://img.badgesize.io/franciscop/cookies/master/index.min.js.svg?label=gzip&logo=&compression=gzip)](https://github.com/franciscop/cookies/blob/master/index.min.js) [![dependencies](https://img.shields.io/badge/dependencies-0-limegreen.svg)](https://github.com/franciscop/cookies/blob/master/package.json) [![](https://data.jsdelivr.com/v1/package/npm/cookiesjs/badge?style=rounded)](https://www.jsdelivr.com/package/npm/cookiesjs)
 
 Super simple cookie manipulation on the front-end using javascript:
 
@@ -32,13 +32,13 @@ cookies(...);  // Use it
 You can alternatively use the awesome JSDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cookiesjs@4/cookies.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/cookiesjs@4"></script>
 <script>
   cookies(...);
 </script>
 ```
 
-Or just [download **cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/cookies.min.js) and use it locally:
+Or just [download **cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies/master/index.min.js) and use it locally:
 
 ```html
 <script src="./cookies.min.js"></script>
