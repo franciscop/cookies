@@ -1,4 +1,4 @@
-# cookies.js [![Circle CI](https://circleci.com/gh/franciscop/cookies.js/tree/master.svg?style=shield)](https://circleci.com/gh/franciscop/cookies.js/tree/master) [![gzip size](https://img.badgesize.io/franciscop/cookies/master/cookies.min.js.svg?compression=gzip)](https://github.com/franciscop/cookies/blob/master/cookies.min.js) [![](https://data.jsdelivr.com/v1/package/npm/cookiesjs/badge?style=rounded)](https://www.jsdelivr.com/package/npm/cookiesjs)
+# cookies.js [![tests](https://github.com/franciscop/cookies/actions/workflows/tests.yml/badge.svg)](https://github.com/franciscop/cookies/actions/workflows/tests.yml) [![gzip size](https://img.badgesize.io/franciscop/cookies.js/master/index.min.js.svg?label=gzip&logo=&compression=gzip)](https://github.com/franciscop/cookies.js/blob/master/index.min.js) [![dependencies](https://img.shields.io/badge/dependencies-0-limegreen.svg)](https://github.com/franciscop/cookies.js/blob/master/package.json) [![](https://data.jsdelivr.com/v1/package/npm/cookiesjs/badge?style=rounded)](https://www.jsdelivr.com/package/npm/cookiesjs)
 
 Super simple cookie manipulation on the front-end using javascript:
 
@@ -25,7 +25,6 @@ Then import it into your project:
 
 ```js
 import cookies from 'cookiesjs';  // New style
-const cookies = require('cookiesjs');  // Old school
 
 cookies(...);  // Use it
 ```
@@ -33,17 +32,17 @@ cookies(...);  // Use it
 You can alternatively use the awesome JSDelivr CDN:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/cookiesjs@3"></script>
-<script type="text/javascript">
+<script type="module">
+  import cookies from 'https://cdn.jsdelivr.net/npm/cookiesjs@4';
   cookies(...);
 </script>
 ```
 
-Or just [download **cookies.min.js**](https://raw.githubusercontent.com/franciscop/cookies/master/cookies.min.js) and use it locally:
+Or just [download **index.min.js**](https://raw.githubusercontent.com/franciscop/cookies.js/master/index.min.js) and use it locally:
 
 ```html
-<script src="cookies.min.js"></script>
-<script type="text/javascript">
+<script type="module">
+  import cookies from './index.min.js';
   cookies(...);
 </script>
 ```
@@ -59,7 +58,7 @@ A cookie is set with a simple object as the first parameter:
 cookies({ token: '42' });
 ```
 
-> We make the assumption that you want a cookie instead of a session, so cookies.js will set the expiration to 100 days by default. Set `cookies.expires = 0` as seen in [the options](#options) to use session cookies
+> We make the assumption that you want a cookie instead of a session, so cookies.js will set the expiration to 365 days by default. Set `cookies.expires = 0` as seen in [the options](#options) to use session cookies
 
 You can set as many cookies as you want at the same time:
 
