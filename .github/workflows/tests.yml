@@ -23,6 +23,6 @@ jobs:
         env:
           CI: true
       - name: Run the tests
-        run: bun test
+        run: bun run test
         env:
           CI: true
