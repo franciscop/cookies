@@ -96,9 +96,8 @@ describe('Setting the cookies', () => {
   });
 
   it('can delete cookies', () => {
-    let a: undefined;
     expect(cookies({ a: 'a' })({ a: null })('a')).toBe(undefined);
-    expect(cookies({ a: 'a' })({ a: a })('a')).toBe(undefined);
+    expect(cookies({ a: 'a' })({ a: undefined })('a')).toBe(undefined);
     expect(cookies({ a: 'a' })({ a: 'a' }, { expires: -10 })('a')).toBe(undefined);
   });
 
